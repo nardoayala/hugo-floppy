@@ -1,0 +1,41 @@
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	{{- $title := ( .Title ) -}}
+	{{- $siteTitle := ( .Site.Title ) -}}
+
+	{{- if .IsHome -}}
+		<title>{{ $siteTitle }} {{ if isset .Site.Params "subtitle" }}- {{ .Site.Params.Subtitle }}{{ end }} </title>
+		{{- if isset .Site.Params "description" -}}
+			<meta name="description" content="{{ .Site.Params.Description }}" />
+		{{- end -}}
+	{{- else -}}
+		<title>{{ $title }} - {{ $siteTitle }}</title>
+	{{- end -}}
+
+	{{- if isset .Site.Params "favicon" -}}
+		<link rel="icon" type="image/png" href={{ .Site.Params.favicon }} />
+	{{- end -}}
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{{ with .OutputFormats.Get "rss" -}}
+		{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ end -}}
+
+	{{- template "_internal/opengraph.html" . -}}
+	{{- template "_internal/twitter_cards.html" . -}}
+
+	<!-- This is to setup the configurations in order to work with the custom SASS file -->
+	{{ $sass := resources.Get "sass/main.scss" }}
+	{{ $options := (dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true) }}
+	{{ $style := $sass | resources.ToCSS $options }}
+
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ $style.Permalink }}" />
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/all.min.css" />
+
+	<!-- {{- if isset .Site.Params "customcss" }}
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ $style.Permalink }}" />
+	{{ end }} -->
+</head>

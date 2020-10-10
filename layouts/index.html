@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" . }}
+<body>
+	{{ partial "header.html" . }}
+	<div class="medium-container">
+
+		<main class="main-content">
+
+			{{ partial "lead.html" . }}
+	
+			<section class="listing">
+	
+				<div class="listing__title">
+					<h2>Posts</h2>
+				</div>
+	
+				<div class="tag-cloud">
+					<a {{ if eq "/" .RelPermalink }}class="active filter-button" {{ else }} class="filter-button" {{ end }} href="javascript:void(0)">All</a>
+					{{ $url := .RelPermalink }}
+					{{ range $key, $value := .Site.Taxonomies.categories }}
+					{{ $categoryUrl := print "/" ($key | urlize) "/" }}
+					<a {{ if eq $categoryUrl $url }}class="active filter-button" {{ else }} class="filter-button" {{ end }} href="javascript:void(0)">{{ $key | humanize }}</a>
+					{{ end }}
+				</div>
+	
+				<ul class="listing__posts">
+					{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+					{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
+					{{ range $paginator.Pages }}
+					<li class="post {{ range .Params.categories }} {{ . }}  {{ end }}">
+						<a class="post__link" href="{{ .RelPermalink }}">
+							{{if isset .Params "icon" }}<img class="icon" src="{{ index .Params "icon" }}" alt="">
+								{{ else }}<img class="icon" src="img/icons/floppy.png" alt="">
+								{{ end }}
+								
+								<div class="post__data">
+									<h3 class="title">
+										{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}
+									</h3>
+									<div class="date">
+										<span class="day">{{ dateFormat "02" .Date }} de </span>
+										<span class="rest">{{ if $.Site.Data.month }}{{ index $.Site.Data.month (printf "%d" .Date.Month) }} de {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
+									</div>
+								</div>
+						</a>
+					</li>
+					{{ end }}
+				</ul>
+			</section>
+		</div>
+		</main>
+		
+	{{ partial "footer.html" . }}
+	<script src="{{ .Site.BaseURL }}js/fiter.js"></script>
+</body>
+</html>

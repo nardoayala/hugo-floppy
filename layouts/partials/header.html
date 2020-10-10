@@ -1,0 +1,21 @@
+<nav class="nav">
+	<div class="nav-container">
+		<div class="brand">
+			<a href="{{ .Site.BaseURL }}">
+			{{ if .Site.Params.HeaderIcon }}
+				<img src="{{ .Site.Params.HeaderIcon }}" class="favicon" alt="{{ .Site.Title }}" />
+			{{ end }}
+				<span class="title">
+				{{ .Site.Title }}
+				</span>
+			</a>
+		</div>
+		<ul class="links">
+			{{ range .Site.Menus.main }}
+			<li>
+				<a href="{{ .URL }}">{{ .Name }}</a>
+			</li>
+			{{ end }}
+		</ul>
+	</div>
+</nav>

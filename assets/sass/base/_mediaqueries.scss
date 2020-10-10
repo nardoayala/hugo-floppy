@@ -1,0 +1,25 @@
+// AUTHOR: Desiré M Carmona
+// LICENSE: CC-BY-NC-ND-4.0
+
+// == RESPONSIVE ==
+@mixin xs-screen($xs-screen:480px) {
+	@media only screen and (max-width: $xs-screen){
+		@content;
+	}
+}
+@mixin s-screen($s-screen:768px) {
+	@media only screen and (max-width: $s-screen){
+		@content;
+}
+}
+@mixin m-screen($m-screen:992px) {
+	@media only screen and (max-width: $m-screen){
+		@content;
+}
+}
+@mixin l-screen($l-screen:1200px) {
+	@media only screen and (max-width: $l-screen){
+		@content;
+}
+}
+// == /RESPONSIVE ==
