@@ -6,7 +6,7 @@
 On https://themes.gohugo.io you can look up a demo.
 [Link to demo](https://themes.gohugo.io/theme/hugo-vitae/)
 
-![Screenshot](https://raw.githubusercontent.com/nardoyala/hugo-floppy/master/images/screenshot.png)
+![Screenshot](https://github.com/nardoyala/hugo-floppy/blob/main/images/screenshot.png)
 
 ## Features
 
