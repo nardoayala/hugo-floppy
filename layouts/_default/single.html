@@ -3,7 +3,7 @@
 {{ partial "head.html" . }}
 <body>
 	{{ partial "header.html" . }}
-	<div class="small-container">
+	<div class="medium-container">
 
 		<main class="main-content">
 			<div class="author">
@@ -43,7 +43,7 @@
 							{{ range $key, $value := $taxonomy }}
 								{{ range $value.Pages }}
 								{{ if eq .LinkTitle $pagename }}
-									<a href="/{{ $key }}/"> {{ $key }} </a>
+									<a href="{{ relURL $taxonomyname }}/{{ $key }}/"> {{ $key }} </a>
 								{{ end }}
 								{{ end }}
 							{{ end }}

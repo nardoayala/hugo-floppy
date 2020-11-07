@@ -4,9 +4,7 @@ title = "Floppy"
 theme = "hugo-floppy"
 paginate = 100
 
-copyright = "© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)"
-
-googleAnalytics = "UA-123-45"
+copyright = "© Copyright notice | [Floppy](https://github.com/nardoyala/hugo-floppy) theme for [Hugo](https://gohugo.io)"
 
 [permalinks]
   posts = "/:slug/"

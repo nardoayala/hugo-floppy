@@ -31,7 +31,7 @@
 					<li class="post {{ range .Params.categories }} {{ . }}  {{ end }}">
 						<a class="post__link" href="{{ .RelPermalink }}">
 							{{if isset .Params "icon" }}<img class="icon" src="{{ index .Params "icon" }}" alt="">
-								{{ else }}<img class="icon" src="img/icons/floppy.png" alt="">
+								{{ else }}<img class="icon" src="/img/icons/floppy.png" alt="">
 								{{ end }}
 								
 								<div class="post__data">
@@ -47,6 +47,7 @@
 					</li>
 					{{ end }}
 				</ul>
+				{{ partial "paginator.html" . }}
 			</section>
 		</div>
 		</main>
