@@ -1,25 +1,21 @@
-<header class="header">
-	<nav class="header__navbar">
-		<div class="header__navbar-container">
-			<div class="header__navbar__brand">
-				<a href="{{ .Site.BaseURL }}">
-				{{ if .Site.Params.HeaderIcon }}
-					<img src="{{ .Site.Params.HeaderIcon }}" class="favicon" alt="{{ .Site.Title }}" />
-					{{ else }}
-					<img src="/img/icons/floppy.png" class="favicon" alt="{{ .Site.Title }}" />
-				{{ end }}
-					<span class="title">
-					{{ .Site.Title }}
-					</span>
-				</a>
-			</div>
-			<ul class="header__navbar__links">
-				{{ range .Site.Menus.main }}
-				<li>
-					<a href="{{ .URL }}">{{ .Name }}</a>
-				</li>
-				{{ end }}
-			</ul>
+<nav class="nav">
+	<div class="nav-container">
+		<div class="brand">
+			<a href="{{ .Site.BaseURL }}">
+			{{ if .Site.Params.Avatar }}
+				<img src="{{ .Site.Params.Avatar }}" class="favicon" alt="{{ .Site.Title }}" />
+			{{ end }}
+				<span class="title">
+				{{ .Site.Title }}
+				</span>
+			</a>
 		</div>
-	</nav>
-</header>
+		<ul class="links">
+			{{ range .Site.Menus.main }}
+			<li>
+				<a href="{{ .URL }}">{{ .Name }}</a>
+			</li>
+			{{ end }}
+		</ul>
+	</div>
+</nav>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Language }}">
 {{ partial "head.html" . }}
 <body>
 	{{ partial "header.html" . }}
@@ -15,14 +15,14 @@
 					<h2>Posts</h2>
 				</div>
 	
-				<div class="tag-cloud">
-					<a {{ if eq "/" .RelPermalink }}class="active filter-button" {{ else }} class="filter-button" {{ end }} href="javascript:void(0)">All</a>
+				<ul class="tag-cloud">
+					<li><a {{ if eq "/" .RelPermalink }}class="active filter-button" {{ else }} class="filter-button" {{ end }} href="javascript:void(0)">Todos</a></li>
 					{{ $url := .RelPermalink }}
 					{{ range $key, $value := .Site.Taxonomies.categories }}
 					{{ $categoryUrl := print "/" ($key | urlize) "/" }}
-					<a {{ if eq $categoryUrl $url }}class="active filter-button" {{ else }} class="filter-button" {{ end }} href="javascript:void(0)">{{ $key | humanize }}</a>
+					<li><a {{ if eq $categoryUrl $url }}class="active filter-button" {{ else }} class="filter-button" {{ end }} href="javascript:void(0)">{{ $key | humanize }}</a></li>
 					{{ end }}
-				</div>
+				</ul>
 	
 				<ul class="listing__posts">
 					{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
@@ -31,7 +31,7 @@
 					<li class="post {{ range .Params.categories }} {{ . }}  {{ end }}">
 						<a class="post__link" href="{{ .RelPermalink }}">
 							{{if isset .Params "icon" }}<img class="icon" src="{{ index .Params "icon" }}" alt="">
-								{{ else }}<img class="icon" src="/img/icons/floppy.png" alt="">
+								{{ else }}<img class="icon" src="img/glasses.svg" alt="">
 								{{ end }}
 								
 								<div class="post__data">
@@ -39,14 +39,14 @@
 										{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}
 									</h3>
 									<div class="date">
-										<span>{{ .PublishDate.Format "January 2, 2006" }}</span>
+										<span class="day">{{ dateFormat "02" .Date }} de </span>
+										<span class="rest">{{ if $.Site.Data.month }}{{ index $.Site.Data.month (printf "%d" .Date.Month) }} de {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
 									</div>
 								</div>
 						</a>
 					</li>
 					{{ end }}
 				</ul>
-				{{ partial "paginator.html" . }}
 			</section>
 		</div>
 		</main>

@@ -9,10 +9,10 @@ filterButtonsList.forEach(button => {
     button.classList.add("active")
     postsList.forEach(post => {
       const category = event.target.innerText.replace(" ","-")
-      if (category === "All") {
+      if (category === "Todos") {
         post.classList.remove("hide")
       }
-      else if (!post.classList.contains(category) && !post.classList.contains(category.toLowerCase())) {
+      else if (!post.classList.contains(category)) {
         post.classList.add("hide")
       } else {
         post.classList.remove("hide")

@@ -1,5 +1,5 @@
 # Floppy
-...is a blog theme that is inspired by [Tania Rascia's](https://github.com/taniarascia) website ([verion 4.0](https://www.taniarascia.com/website-redesign-version-4-0/)). I forked the base of this project from [Hugo-Vitae](https://github.com/dataCobra/hugo-vitae/)
+...is a blog theme that is inspired by [Tania Rascia's](https://github.com/taniarascia) website ([version 4.0](https://www.taniarascia.com/website-redesign-version-4-0/)). I forked the base of this project from [Hugo-Vitae](https://github.com/dataCobra/hugo-vitae/)
 
 ## Demo
 

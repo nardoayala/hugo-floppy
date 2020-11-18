@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Language }}">
 {{ partial "head.html" . }}
 <body>
 	{{ partial "header.html" . }}
-	<div class="medium-container">
+	<div class="small-container">
 
 		<main class="main-content">
 			<div class="author">
@@ -21,7 +21,8 @@
 				<h1 class="title">{{ .Title }}</h1>
 				{{ if ne .Date.Year 1 }}
 					<div class="date">
-						<span>{{ .PublishDate.Format "January 2, 2006" }}</span>
+						<span class="day">{{ dateFormat "02" .Date }} de </span>
+						<span class="rest">{{ if $.Site.Data.month }}{{ index $.Site.Data.month (printf "%d" .Date.Month) }} de {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
 					</div>
 				{{ end }}
 			</div>
@@ -42,7 +43,7 @@
 							{{ range $key, $value := $taxonomy }}
 								{{ range $value.Pages }}
 								{{ if eq .LinkTitle $pagename }}
-									<a href="{{ relURL $taxonomyname }}/{{ $key }}/"> {{ $key }} </a>
+									<a href="/{{ $taxonomyname }}/{{ $key }}/"> {{ $key }} </a>
 								{{ end }}
 								{{ end }}
 							{{ end }}
