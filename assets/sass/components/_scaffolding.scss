@@ -211,8 +211,8 @@ pre {
   font-family: $code-family;
   font-size: $code-size;
   margin: 0 0 $margins 0;
-  overflow: auto;
-
+  white-space: pre-wrap;
+  
   code {
     font-family: $code-family;
     line-height: 1.2;
