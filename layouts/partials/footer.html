@@ -3,7 +3,7 @@
 		<div class="footer__text">{{ with .Site.Copyright }} {{ . | markdownify }} {{ end }}</div>
 		<div class="tools">
 			{{ range $index, $key := .Site.Params.Tools }}
-			<a href="{{ $key.url }}" title="{{ $key.title }}" target="_blank">
+			<a href="{{ $key.url }}" title="{{ $key.title }}" target="_blank" rel="noopener">
 				<img src="{{ $key.icon }}" alt="{{ $key.name }}">
 			</a>
 			{{ end }}

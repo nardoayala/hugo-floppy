@@ -4,7 +4,7 @@
     <p>{{ .Site.Params.About }}</p>
     <ul class="social-links">
       {{ range $index, $key := .Site.Params.Social}}
-        <li><a href="{{ $key.url }}"target="_blank"><i title="{{ $key.name }}" class="social-links__icon {{ $key.icon }} {{ lower $key.name }}"></i></a></li>
+        <li><a href="{{ $key.url }}"target="_blank" rel="noopener"><i title="{{ $key.name }}" class="social-links__icon {{ $key.icon }} {{ lower $key.name }}"></i></a></li>
       {{ end }}
     </ul>
   </div>
