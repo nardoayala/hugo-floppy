@@ -1,6 +1,6 @@
 <div class="lead">
   <div class="greeting">
-    <h1>{{ .Site.Params.GreetingMessage }}</h1>
+    <h1>{{ replace .Site.Params.GreetingMessage "\n" "<br/>" | safeHTML }}</h1>
     <p>{{ .Site.Params.About }}</p>
     <ul class="social-links">
       {{ range $index, $key := .Site.Params.Social}}
@@ -9,6 +9,6 @@
     </ul>
   </div>
   <div class="profile">
-    <img class="responsive-image" src="{{ .Site.Params.ProfilePicture }}" alt="">
+    <img class="responsive-image" src="{{ .Site.Params.ProfilePicture }}" width="250" height="250" alt="Bernardo Ayala profile picture">
   </div>
 </div>

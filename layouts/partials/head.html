@@ -33,7 +33,7 @@
 	{{ $style := $sass | resources.ToCSS $options }}
 
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ $style.Permalink }}" />
-	<link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/all.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/icomoon.css" />
 
 	<!-- {{- if isset .Site.Params "customcss" }}
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ $style.Permalink }}" />
