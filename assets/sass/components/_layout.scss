@@ -72,12 +72,11 @@
   padding: 0 2rem;
   .greeting {
     flex: 2 1;
-    margin-right: 3rem;
     h1 {
       text-align: center;
       font-size: 2.5rem;
       @include s-screen() {
-        text-align: left;
+        text-align: center;
       }
       @include xs-screen() {
         font-size: 1.3rem;
@@ -251,9 +250,13 @@
 .tag-cloud {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.4rem;
   margin: 0;
   padding: 0;
+  @include xs-screen() {
+    justify-content: center;
+  }
   a {
     display: inline-block;
     background-color: $link-hover-background;
