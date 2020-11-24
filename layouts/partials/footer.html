@@ -4,7 +4,7 @@
 		<div class="tools">
 			{{ range $index, $key := .Site.Params.Tools }}
 			<a href="{{ $key.url }}" title="{{ $key.title }}" target="_blank" rel="noopener">
-				<img src="{{ $key.icon }}" alt="{{ $key.name }}">
+				<img src="{{ $key.icon }}" alt="{{ $key.name }}" width="30" height="30">
 			</a>
 			{{ end }}
 		</div>
