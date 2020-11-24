@@ -1,21 +1,23 @@
-<nav class="nav">
-	<div class="nav-container">
-		<div class="brand">
-			<a href="{{ .Site.BaseURL }}">
-			{{ if .Site.Params.Avatar }}
-				<img src="{{ .Site.Params.Avatar }}" class="favicon" alt="{{ .Site.Title }}" width="25" height="25" />
-			{{ end }}
-				<span class="title">
-				{{ .Site.Title }}
-				</span>
-			</a>
+<header class="header">
+	<nav class="header__nav">
+		<div class="header__nav-container">
+			<div class="brand">
+				<a href="{{ .Site.BaseURL }}">
+				{{ if .Site.Params.Avatar }}
+					<img src="{{ .Site.Params.Avatar }}" class="favicon" alt="{{ .Site.Title }}" width="25" height="25" />
+				{{ end }}
+					<span class="title">
+					{{ .Site.Title }}
+					</span>
+				</a>
+			</div>
+			<ul class="links">
+				{{ range .Site.Menus.main }}
+				<li>
+					<a href="{{ .URL }}">{{ .Name }}</a>
+				</li>
+				{{ end }}
+			</ul>
 		</div>
-		<ul class="links">
-			{{ range .Site.Menus.main }}
-			<li>
-				<a href="{{ .URL }}">{{ .Name }}</a>
-			</li>
-			{{ end }}
-		</ul>
-	</div>
-</nav>
+	</nav>
+</header>
