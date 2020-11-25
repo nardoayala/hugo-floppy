@@ -39,8 +39,8 @@ $highlight                : #ffeea8                                    !default;
 $error                    : #D33C40                                    !default;
 $success                  : #29de7d                                    !default;
 $bq-border                : 16px solid #f0f0f0                         !default;
-$topNav-background        : darken($alternate-background, 2%)            !default;
-$footer-background        : darken($alternate-background, 2%)            !default;
+$header-background        : $alternate-background                        !default;
+$footer-background        : $alternate-background                        !default;
 $brand-github-color       : #24292E                                    !default;
 $brand-linkedIn-color     : #0077B5                                    !default;
 $brand-twitter-color      : #1DA1F2                                    !default;
@@ -57,13 +57,15 @@ $font-variant             : normal                                     !default;
 $font-weight              : normal                                     !default;
 $font-color               : #404040                                  !default;
 $font-family              : 'Lato',
-                            sans-serif                                 !default;
+                            Arial,
+                            sans-serif,                                !default;
 $line-height              : 1.6                                        !default;
 
 // Headings
 $heading-font-color       : #343A40                                  !default;
 $heading-font-weight      : 600                                        !default;
 $heading-font-family      : 'Lato',
+                            Arial,
                             sans-serif                                 !default;
 $heading-line-height      : 1.2 !default;
 

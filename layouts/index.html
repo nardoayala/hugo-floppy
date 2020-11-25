@@ -3,9 +3,8 @@
 {{ partial "head.html" . }}
 <body>
 	{{ partial "header.html" . }}
-	<div class="medium-container">
-
-		<main class="main-content">
+	<main class="main-content">
+		<div class="medium-container">
 
 			{{ partial "lead.html" . }}
 	
@@ -49,7 +48,7 @@
 				</ul>
 			</section>
 		</div>
-		</main>
+	</main>
 		
 	{{ partial "footer.html" . }}
 	<script src="{{ .Site.BaseURL }}js/fiter.js"></script>

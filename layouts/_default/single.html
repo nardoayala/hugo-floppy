@@ -3,9 +3,9 @@
 {{ partial "head.html" . }}
 <body>
 	{{ partial "header.html" . }}
-	<div class="small-container">
+	<main class="main-content">
+		<div class="small-container">
 
-		<main class="main-content">
 			<div class="author">
 				{{ if eq .Site.Params.listAuthor true}}
 					{{ if isset .Params "author" }}
@@ -55,8 +55,8 @@
 				{{ end }}
 				{{ end }}
 			</div>
-		</main>
-	</div>
+		</div>
+	</main>
 	{{ partial "footer.html" . }}
 </body>
 </html>

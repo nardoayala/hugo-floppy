@@ -8,6 +8,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   font: $font-style $font-variant $font-weight #{$font-size}/#{$line-height} $font-family;
   font-size: $font-size;
+  height: 100%;
 }
 
 // Body base
@@ -15,6 +16,9 @@ body {
   color: $font-color;
   background: $background;
   font-size: $body-font-size;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 6rem;
 }
 
 p,
