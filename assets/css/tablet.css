@@ -47,6 +47,9 @@ h5 {
 .footer__copyright {
   font-size: 2rem;
 }
+.post__details {
+  text-align: left;
+}
 .post__details__title {
   font-size: var(--h1);
 }
