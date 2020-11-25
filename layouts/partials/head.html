@@ -27,7 +27,10 @@
 	{{- template "_internal/opengraph.html" . -}}
 	{{- template "_internal/twitter_cards.html" . -}}
 
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/fonts.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="(min-width: 768px)" href="/css/tablet.css" />
+	{{ $fonts := resources.Get "css/fonts.css" | minify}}
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ $fonts.Permalink }}" />
+	{{ $mainCss := resources.Get "css/main.css" | minify}}
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ $mainCss.Permalink }}" />
+	{{ $tabletCss := resources.Get "css/tablet.css" | minify}}
+	<link rel="stylesheet" type="text/css" media="(min-width: 768px)" href="{{ $tabletCss.Permalink }}" />
 </head>
