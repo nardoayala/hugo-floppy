@@ -1,9 +1,9 @@
-<footer class="footer">
+<footer>
 	<div class="footer__container">
-		<div class="footer__text">{{ with .Site.Copyright }} {{ . | markdownify }} {{ end }}</div>
-		<div class="tools">
+		<div class="footer__copyright">{{ with .Site.Copyright }} {{ . | markdownify }} {{ end }}</div>
+		<div class="footer__linking">
 			{{ range $index, $key := .Site.Params.Tools }}
-			<a href="{{ $key.url }}" title="{{ $key.title }}" target="_blank" rel="noopener">
+			<a href="{{ $key.url }}" title="{{ $key.title }}" target="_blank" rel="noreferrer">
 				<img src="{{ $key.icon }}" alt="{{ $key.name }}" width="30" height="30">
 			</a>
 			{{ end }}

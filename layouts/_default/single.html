@@ -3,34 +3,34 @@
 {{ partial "head.html" . }}
 <body>
 	{{ partial "header.html" . }}
-	<main class="main-content">
-		<div class="small-container">
+	<main>
+		<div class="main__container">
 
+			{{ if eq .Site.Params.listAuthor true}}
 			<div class="author">
-				{{ if eq .Site.Params.listAuthor true}}
-					{{ if isset .Params "author" }}
-						{{ if isset .Params "authorlink" }}
-							{{ i18n "authorpretext" }} <a href="{{ .Params.authorlink }}">{{ .Params.author }}</a>
-						{{ else }}
-							{{ i18n "authorpretext" }} {{ .Params.author }}
-						{{ end }}
+				{{ if isset .Params "author" }}
+					{{ if isset .Params "authorlink" }}
+						{{ i18n "authorpretext" }} <a href="{{ .Params.authorlink }}">{{ .Params.author }}</a>
+					{{ else }}
+						{{ i18n "authorpretext" }} {{ .Params.author }}
 					{{ end }}
 				{{ end }}
 			</div>
-			<div class="post-header">
-				<h1 class="title">{{ .Title }}</h1>
+			{{ end }}
+			<div class="post__details">
+				<h1 class="post__details__title">{{ .Title }}</h1>
 				{{ if ne .Date.Year 1 }}
-					<div class="date">
+					<div class="post__details__date">
 						<span class="day">{{ dateFormat "02" .Date }} de </span>
 						<span class="rest">{{ if $.Site.Data.month }}{{ index $.Site.Data.month (printf "%d" .Date.Month) }} de {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
 					</div>
 				{{ end }}
 			</div>
-			<div class="markdown">
+			<section class="post__content">
 				{{ .Content }}
-			</div>
+			</section>
+			{{ if ne .Type "page" }}
 			<div class="taxonomies">
-				{{ if ne .Type "page" }}
 				{{ $pagename := .Page.Title }}
 				{{ $notaxo := .Params.notaxonomy }}
 				{{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
@@ -53,8 +53,8 @@
 					{{ end }}
 					{{ end }}
 				{{ end }}
-				{{ end }}
 			</div>
+			{{ end }}
 		</div>
 	</main>
 	{{ partial "footer.html" . }}

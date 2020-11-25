@@ -1,0 +1,14 @@
+<section class="hero">
+  <div class="hero__details">
+    <h1>{{ replace .Site.Params.GreetingMessage "\n" "<br/>" | safeHTML }}</h1>
+    <p>{{ .Site.Params.About }}</p>
+    <ul>
+      {{ range $index, $key := .Site.Params.Social}}
+        <li><a href="{{ $key.url }}"target="_blank" rel="noreferrer"><i title="{{ $key.name }}" class="social-links__icon {{ $key.icon }} {{ lower $key.name }}"></i></a></li>
+      {{ end }}
+    </ul>
+  </div>
+  <figure class="hero__img">
+    <img src="{{ .Site.Params.ProfilePicture }}" width="250" height="250" alt="Foto de Bernardo Ayala">
+  </figure>
+</section>

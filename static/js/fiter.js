@@ -1,4 +1,4 @@
-const posts = document.querySelectorAll(".post")
+const posts = document.querySelector(".posts__list").querySelectorAll("li")
 const filterButtons = document.querySelectorAll(".filter-button")
 
 const filterButtonsList = [...filterButtons]
