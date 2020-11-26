@@ -27,11 +27,13 @@
 	{{- template "_internal/opengraph.html" . -}}
 	{{- template "_internal/twitter_cards.html" . -}}
 
-	{{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true) }}
+	<link rel="preload" href="/fonts/icomoon.ttf?16s8gb" as="font" type="font/woff2" crossorigin>
+
+	{{ $options := (dict "targetPath" "css/main.min.css" "outputStyle" "compressed" "enableSourceMap" true) }}
 	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options }}
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ $style.Permalink }}" />
 
-	{{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true) }}
+	{{ $options := (dict "targetPath" "css/tablet.min.css" "outputStyle" "compressed" "enableSourceMap" true) }}
 	{{ $tabletStyle := resources.Get "sass/tablet.scss" | resources.ToCSS $options }}
 	<link rel="stylesheet" type="text/css" media="(min-width: 768px)" href="{{ $tabletStyle.Permalink }}" />
 </head>
