@@ -1,0 +1,34 @@
+//======================================================================
+// Hero
+//======================================================================
+.hero {
+  display: flex;
+  align-items: center;
+}
+.hero__details {
+  text-align: center;
+  flex: 2 1;
+}
+.hero__details h1 {
+  font-size: 2.2rem;
+}
+.hero__details p {
+  margin: 20px 0;
+}
+.hero__details ul {
+  display: flex;
+  list-style: none;
+  font-size: 2.8rem;
+}
+.hero__details ul a {
+  padding: 8px;
+  font-size: 3.2rem;
+}
+.hero__img {
+  display: none;
+}
+.hero__img img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}

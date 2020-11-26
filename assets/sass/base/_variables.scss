@@ -1,0 +1,47 @@
+//======================================================================
+// Colors
+//======================================================================
+$background: white;
+$alternate-background: #fafafa;
+$font-color: #404040;
+$heading-color: #343A40;
+$listing-color: #444444;
+$link-color: #0366ee;
+$link-hover-color: #0246a2;
+$link-hover-background: #f2f2f2;
+$highlight: #ffeea8;
+//======================================================================
+// Containers
+//======================================================================
+$x-small: 600px;
+$small: 850px;
+$medium: 1000px;
+$large: 1200px;
+//======================================================================
+// Typography
+//======================================================================
+// Body
+$body-font-size: 1.6rem;
+$body-font-family: "Lato", arial, sans-serif;
+// Headings
+$h1: 3.6rem;
+$h2: 3.2rem;
+$h3: 2.8rem;
+$h4: 2.4rem;
+$h5: 2rem;
+$h1-mobile: 2.8rem;
+$h2-mobile: 2.4rem;
+$h3-mobile: 2rem;
+$h4-mobile: 1.75rem;
+$h5-mobile: 1.6rem;
+// Code
+$code-font-size: 1.4rem;
+$code-font-family: 'Roboto Mono', Menlo , monospace;
+$code-background: transparent;
+//======================================================================
+// Borders
+//======================================================================
+$border-width: 1px;
+$border-style: solid;
+$border-color: #dedede;
+$borders: $border-width $border-style $border-color;

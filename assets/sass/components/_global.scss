@@ -1,0 +1,99 @@
+//======================================================================
+// Global Styles
+//======================================================================
+body {
+  position: relative;
+  padding-bottom: 13rem;
+  font-size: $body-font-size;
+  font-family: $body-font-family;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  color: $font-color;
+  line-height: 1.6;
+}
+figure {
+  text-align: center;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 25px 0;
+  color: $heading-color;
+  font-weight: 600;
+  line-height: 1.2;
+}
+h1 {
+  font-size: $h1-mobile;
+}
+h2 {
+  font-size: $h2-mobile;
+}
+h3 {
+  font-size: $h3-mobile;
+}
+h4 {
+  font-size: $h4-mobile;
+}
+h5 {
+  font-size: $h5-mobile;
+}
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+a:hover {
+  color: $link-hover-color;
+}
+kbd {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+  color: #333;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0 .1em;
+  padding: .1em .6em;
+  text-shadow: 0 1px 0 #fff;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
+  width: 100%;
+}
+.main__container {
+  width: 90%;
+  max-width: $small;
+}
+.icon-github,
+.icon-github-square {
+  color:#24292E
+}
+.icon-linkedin,
+.icon-linkedin-square {
+  color: #0077B5;
+}
+.icon-twitter,
+.icon-twitter-square {
+  color: #1DA1F2;
+}
+.hide {
+  display: none;
+}
+.container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  min-width: 288px;
+  max-width: $small;
+}

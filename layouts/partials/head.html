@@ -27,8 +27,11 @@
 	{{- template "_internal/opengraph.html" . -}}
 	{{- template "_internal/twitter_cards.html" . -}}
 
-	{{ $mainCss := resources.Get "css/main.css" | minify}}
-	<link rel="stylesheet" type="text/css" media="screen" href="{{ $mainCss.Permalink }}" />
-	{{ $tabletCss := resources.Get "css/tablet.css" | minify}}
-	<link rel="stylesheet" type="text/css" media="(min-width: 768px)" href="{{ $tabletCss.Permalink }}" />
+	{{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true) }}
+	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options }}
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ $style.Permalink }}" />
+
+	{{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true) }}
+	{{ $tabletStyle := resources.Get "sass/tablet.scss" | resources.ToCSS $options }}
+	<link rel="stylesheet" type="text/css" media="(min-width: 768px)" href="{{ $tabletStyle.Permalink }}" />
 </head>

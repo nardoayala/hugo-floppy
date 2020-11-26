@@ -1,0 +1,67 @@
+//======================================================================
+// Responsive styles for min-width: 768px
+//======================================================================
+@import "base/variables";
+body {
+  font-size: 2rem;
+}
+h1 {
+  font-size: $h1;
+}
+h2 {
+  font-size: $h2;
+}
+h3 {
+  font-size: $h3;
+}
+h4 {
+  font-size: $h4;
+}
+h5 {
+  font-size: $h5;
+}
+.header{
+  &__brand span {
+    display: block;
+  }
+  &__nav ul a {
+    padding: 12px;
+  }
+}
+.hero {
+  &__details h1 {
+    font-size: $h1;
+  }
+  &__details p {
+    text-align: left;
+  }
+  &__img {
+    display: block;
+    margin-left: 15px;
+  }
+}
+.posts {
+  &__filter-buttons {
+    justify-content: start;
+  }
+  &__list h3 {
+  font-size: $h3;
+  }
+}
+.post {
+  &__details {
+    text-align: left;
+    &__title {
+      font-size: $h1;
+    }
+  }
+}
+.footer {
+  &__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__copyright {
+    font-size: 2rem;
+  }
+}

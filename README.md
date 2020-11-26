@@ -4,7 +4,7 @@
 ## Demo
 
 On https://themes.gohugo.io you can look up a demo.
-[Link to demo](https://themes.gohugo.io/theme/hugo-vitae/)
+[Link to demo](https://bernardoayala.com)
 
 ![Screenshot](https://github.com/nardoyala/hugo-floppy/blob/main/images/screenshot.png)
 
@@ -91,7 +91,7 @@ fixed strings to your liking. Don't forget to also set
 ```sh
 mkdir i18n
 cd i18n
-cp ../themes/hugo-vitae/i18n/en.yaml en.yaml
+cp ../themes/hugo-floppy/i18n/en.yaml en.yaml
 # Edit the new language file
 ```
 
@@ -188,8 +188,8 @@ If you have pages, posts or other content that should not show up in the RSS
 feed of your website. You can set the new front matter `nofeed` for this
 content. It's a boolean, you could use either `true` or `false`.
 
-If you want to modify the `index.xml` layout. Copy the Vitae layout from
-`hugo-vitae/layouts/index.xml` to your Hugo site root directory into the
+If you want to modify the `index.xml` layout. Copy the Floppy layout from
+`hugo-floppy/layouts/index.xml` to your Hugo site root directory into the
 folder `layouts/` and change it the way you want.
 
 ## Credits
@@ -199,7 +199,5 @@ folder `layouts/` and change it the way you want.
 * [icons8](https://icons8.com/) for all the icons
 * [google](https://fonts.google.com) for the roboto and lato fonts
 * [fontawesome](https://fontawesome.com) for providing amazing icons
-* [Primitive UI](https://github.com/taniarascia/primitive) a front-end design toolkit built with Sass.
-* [scss-mediaq](https://www.npmjs.com/package/scss-mediaq) a npm package that contains the media queries used in hugo-floppy.
 
-Licensed under the [GPL-2.0](https://raw.githubusercontent.com/dataCobra/hugo-vitae/master/LICENSE.md).
+Licensed under the [GPL-2.0](https://raw.githubusercontent.com/nardoyala/hugo-floppy/main/LICENSE.md).
