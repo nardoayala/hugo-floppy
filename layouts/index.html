@@ -50,6 +50,7 @@
 	</main>
 		
 	{{ partial "footer.html" . }}
-	<script src="{{ .Site.BaseURL }}js/fiter.js"></script>
+	{{ $filter := resources.Get "js/filter.js" | resources.Minify }}
+	<script src="{{  $filter.Permalink }}"></script>
 </body>
 </html>
