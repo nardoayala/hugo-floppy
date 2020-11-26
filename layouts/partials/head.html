@@ -27,8 +27,6 @@
 	{{- template "_internal/opengraph.html" . -}}
 	{{- template "_internal/twitter_cards.html" . -}}
 
-	<link rel="preload" href="/fonts/icomoon.ttf?16s8gb" as="font" type="font/woff2" crossorigin>
-
 	{{ $options := (dict "targetPath" "css/main.min.css" "outputStyle" "compressed" "enableSourceMap" true) }}
 	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options }}
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ $style.Permalink }}" />
