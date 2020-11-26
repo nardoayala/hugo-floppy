@@ -4,13 +4,13 @@
 
 <body>
 	{{ partial "header.html" . }}
-	<div class="medium-container">
+	<main>
+		<div class="main__container">
 
-		<main class="main-content">
 
-			<section class="listing">
+			<section class="posts">
 	
-				<div class="listing__title">
+				<div class="posts__title">
 					{{ if isset .Data "Term" }}
 					<h2 class="listing-page__title">{{ .Data.Term }}</h2>
 					{{ else }}
@@ -18,23 +18,22 @@
 					{{ end }}
 				</div>
 	
-				<ul class="listing__posts">
+				<ul class="posts__list">
 					{{- range .Data.Pages -}}
 					{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
 					{{- else -}}
-					<li class="post">
+					<li>
 						<a href="{{ .RelPermalink }}" class="post__link">
 							{{if isset .Params "icon" }}<img class="icon" src="{{ index .Params "icon" }}" alt="">
 							{{ else }}<img class="icon" src="/img/glasses.svg" alt="">
 							{{ end }}
 							
-							<div class="post__data">
+							<div class="posts__list__item">
 								<h3 class="title">
 									{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}
 								</h3>
 								<div class="date">
-									<span class="day">{{ dateFormat "02" .Date }} de </span>
-									<span class="rest">{{ if $.Site.Data.month }}{{ index $.Site.Data.month (printf "%d" .Date.Month) }} de {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
+									<span>{{ dateFormat "Jan 2, 2006" .Date }}</span>
 								</div>
 							</div>
 						</a>
@@ -43,8 +42,8 @@
 					{{- end -}}
 				</ul>
 			</section>
-		</main>
-	</div>
+		</div>
+	</main>
 		
 
 	{{ partial "footer.html" . }}
