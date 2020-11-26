@@ -39,5 +39,14 @@
       padding-left: 40px;
       margin-bottom: 25px;
     }
+    a {
+      color: $heading-color;
+      font-weight: 600;
+      border-bottom: 3px solid #b9cdfb;
+      &:hover {
+        color: #101010;
+        border-bottom: 3px solid #96b4f9;
+      }
+    }
   } 
 }
