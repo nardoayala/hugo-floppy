@@ -47,9 +47,9 @@ h5 {
 a {
   color: $link-color;
   text-decoration: none;
-}
-a:hover {
-  color: $link-hover-color;
+  &:hover {
+    color: $link-hover-color;
+  }
 }
 kbd {
   background-color: #f7f7f7;

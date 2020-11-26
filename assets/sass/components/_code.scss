@@ -12,10 +12,10 @@ pre {
   font-size: 1.4rem;
   margin: 0 0 24px 0;
   white-space: pre-wrap;
-}
-pre code {
-  font-family: $code-font-family;
-  line-height: 1.2;
+  code {
+    font-family: $code-font-family;
+    line-height: 1.2;
+  }
 }
 :not(pre)>code {
   color: $font-color;
