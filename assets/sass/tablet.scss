@@ -39,6 +39,12 @@ h5 {
     display: block;
     margin-left: 15px;
   }
+  &__social-links {
+    font-size: 1.8rem;
+    &__name {
+      font-size: 1.5rem;
+    }
+  }
 }
 .posts {
   &__filter-buttons {

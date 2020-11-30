@@ -2,9 +2,14 @@
   <div class="hero__details">
     <h1>{{ replace .Site.Params.GreetingMessage "\n" "<br/>" | safeHTML }}</h1>
     <p>{{ .Site.Params.About }}</p>
-    <ul>
+    <ul class="hero__social-links">
       {{ range $index, $key := .Site.Params.Social}}
-        <li><a href="{{ $key.url }}"target="_blank" rel="noreferrer"><i title="{{ $key.name }}" class="social-links__icon {{ $key.icon }} {{ lower $key.name }}"></i></a></li>
+        <li>
+          <a href="{{ $key.url }}" class={{ lower $key.name }} target="_blank" rel="noreferrer">
+            <i title="{{ $key.name }}" class="hero__social-links__icon {{ $key.icon }}"></i>
+            <span class="hero__social-links__name">{{ $key.name }}</span>
+          </a>
+        </li>
       {{ end }}
     </ul>
   </div>
