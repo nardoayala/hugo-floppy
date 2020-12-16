@@ -3,6 +3,20 @@
 //======================================================================
 .posts {
   margin: 20px 0;
+  .section-title {
+    margin-top: 40px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid #f1f4f8;
+    a {
+      margin-left: 15px;
+      padding: 4px;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #111111;
+      background-color: #f2f2f2;
+    }
+  }
   &__filter-buttons {
     display: flex;
     justify-content: center;
@@ -13,18 +27,18 @@
     a {
       margin-right: 15px;
       padding: 8px;
-      line-height: 3;
-      color: $link-color;
-      background-color: $link-hover-background;
       border-radius: 4px;
+      font-size: 1.6rem;
+      color: white;
+      background-color: $brand-color;
     }
     .active {
-      color: $link-hover-color;
-      background-color: #E5E5E5;
+      color: $brand-color;
+      background-color: white;
+      border: 2px solid $brand-color;
     }
   }
-  &__list {
-    list-style: none;
+  .post {
     a {
       display: grid;
       grid-template-columns: 50px 2fr;
@@ -36,6 +50,7 @@
       }
     }
     img {
+      display: block;
       width: 30px;
       height: 30px;
     }

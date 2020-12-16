@@ -10,37 +10,34 @@
 
 			<section class="posts">
 	
-				<div class="posts__title">
-					{{ if isset .Data "Term" }}
-					<h2 class="listing-page__title">{{ .Data.Term | humanize}}</h2>
-					{{ else }}
-					<h2 class="page-title">{{ .Title }}</h2>
-					{{ end }}
-				</div>
+				{{ if isset .Data "Term" }}
+				<h2 class="section-title">{{ .Data.Term }}</h2>
+				{{ else }}
+				<h2 class="section-title">{{ .Title }}</h2>
+				{{ end }}
 	
-				<ul class="posts__list">
 					{{- range .Data.Pages -}}
 					{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
 					{{- else -}}
-					<li>
+					<article class="post {{ range .Params.categories }} {{ . }}  {{ end }}">
 						<a href="{{ .RelPermalink }}">
-							{{if isset .Params "icon" }}<img class="icon" src="{{ index .Params "icon" }}" width="30" height="30" alt="Post Icon">
-							{{ else }}<img class="icon"  width="30" height="30" src="img/icons/defragment.png" alt="Post Icon">
-							{{ end }}
-							
-							<div class="posts__list__item">
-								<h3 class="title">
+							<figure class="post__icon">
+								{{if isset .Params "icon" }}
+									<img class="icon" src="{{ index .Params "icon" }}" width="30" height="30" alt="Post Icon">
+								{{ else }}
+									<img class="icon"  width="30" height="30" src="img/icons/defragment.png" alt="Post Icon">
+								{{ end }}
+							</figure>
+							<div class="post__info">
+								<h3>
 									{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}
 								</h3>
-								<div class="date">
-									<span>{{ dateFormat "Jan 2, 2006" .Date }}</span>
-								</div>
+								<span class="date">{{ dateFormat "Jan 2, 2006" .Date }}</span>
 							</div>
 						</a>
-					</li>
+					</article>
 					{{- end -}}
 					{{- end -}}
-				</ul>
 			</section>
 		</div>
 	</main>

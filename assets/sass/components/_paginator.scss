@@ -1,0 +1,15 @@
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  .page-item {
+    margin-right: 15px;
+  }
+  .page-link {
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    color: white;
+    background-color: $brand-color;
+  }
+}

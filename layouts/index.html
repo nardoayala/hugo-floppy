@@ -8,49 +8,40 @@
 
 			{{ partial "hero.html" . }}
 	
+			
 			<section class="posts">
-	
-				<div class="posts__title">
-					<h2>Posts</h2>
-				</div>
-	
-				<ul class="posts__filter-buttons">
-					<li><a {{ if eq "/" .RelPermalink }}class="active filter-button" {{ else }} class="filter-button" {{ end }} href="javascript:void(0)">Todos</a></li>
-					{{ $url := .RelPermalink }}
-					{{ range $key, $value := .Site.Taxonomies.categories }}
-					{{ $categoryUrl := print "/" ($key | urlize) "/" }}
-					<li><a {{ if eq $categoryUrl $url }}class="active filter-button" {{ else }} class="filter-button" {{ end }} href="javascript:void(0)">{{ $key | humanize }}</a></li>
-					{{ end }}
-				</ul>
-	
-				<ul class="posts__list">
+				<h2 class="section-title">
+					Últimos artículos
+					<a href="/posts">Ver todos</a>
+				</h2>
+
 					{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 					{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
 					{{ range $paginator.Pages }}
-					<li class="{{ range .Params.categories }} {{ . }}  {{ end }}">
+
+					<article class="post">
 						<a href="{{ .RelPermalink }}">
-							{{if isset .Params "icon" }}<img class="icon" src="{{ index .Params "icon" }}" width="30" height="30" alt="Post Icon">
-								{{ else }}<img class="icon"  width="30" height="30" src="img/icons/defragment.png" alt="Post Icon">
+							<figure class="post__icon">
+								{{if isset .Params "icon" }}
+									<img class="icon" src="{{ index .Params "icon" }}" width="30" height="30" alt="Post Icon">
+								{{ else }}
+									<img class="icon"  width="30" height="30" src="img/icons/defragment.png" alt="Post Icon">
 								{{ end }}
-								
-								<div class="posts__list__item">
-									<h3>
-										{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}
-									</h3>
-									<div class="date">
-										<span>{{ dateFormat "Jan 2, 2006" .Date }}</span>
-									</div>
-								</div>
+							</figure>
+							<div class="post__info">
+								<h3>
+									{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}
+								</h3>
+								<span class="date">{{ dateFormat "Jan 2, 2006" .Date }}</span>
+							</div>
 						</a>
-					</li>
+					</article>
 					{{ end }}
-				</ul>
 			</section>
+			{{ partial "paginator" . }}
 		</div>
 	</main>
 		
 	{{ partial "footer.html" . }}
-	{{ $filter := resources.Get "js/filter.js" | resources.Minify }}
-	<script src="{{  $filter.Permalink }}"></script>
 </body>
 </html>

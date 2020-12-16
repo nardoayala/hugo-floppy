@@ -47,11 +47,19 @@ h5 {
   }
 }
 .posts {
+  .section-title {
+    a {
+      font-size: 1.6rem;
+      padding: 8px;
+    }
+  }
   &__filter-buttons {
     justify-content: start;
   }
-  &__list h3 {
-  font-size: $h3;
+  .post {
+    h3 {
+      font-size: $h3;
+    }
   }
 }
 .post {

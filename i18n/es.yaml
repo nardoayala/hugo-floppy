@@ -1,0 +1,13 @@
+# i18n/en.yaml
+- id: prevpage
+  translation: "← Anterior"
+
+- id: nextpage
+  translation: "Siguiente →"
+
+- id: javadisqus
+  translation: "Por favor, habilita JavaScript para ver el"
+
+
+- id: authorpretext
+  translation: "Escrito por"
