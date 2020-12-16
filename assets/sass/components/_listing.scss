@@ -19,11 +19,13 @@
   }
   &__filter-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    margin: 20px 0;
     text-align: center;
     list-style: none;
+    li {
+      margin: 15px 0;
+    }
     a {
       margin-right: 15px;
       padding: 8px;
