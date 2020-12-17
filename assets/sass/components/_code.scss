@@ -12,6 +12,7 @@ pre {
   font-size: $code-font-size;
   margin: 0 0 24px 0;
   white-space: pre-wrap;
+  overflow-wrap: break-word;
   code {
     font-family: $code-font-family;
     line-height: 1.2;
