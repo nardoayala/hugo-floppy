@@ -17,18 +17,25 @@
 				{{ end }}
 
 				<ul class="posts__filter-buttons">
-					<li><a class="active filter-button" href="javascript:void(0)">Todos</a></li>
+					<li><button class="active filter-button" onclick="filter(this)">Todos</button></li>
 					{{ $url := .RelPermalink }}
 					{{ range $key, $value := .Site.Taxonomies.categories }}
 					{{ $categoryUrl := print "/" ($key | urlize) "/" }}
-					<li><a {{ if eq $categoryUrl $url }}class="active filter-button" {{ else }} class="filter-button" {{ end }} href="javascript:void(0)">{{ $key | humanize }}</a></li>
+					<li><button
+								{{ if eq $categoryUrl $url }}class="active filter-button"
+								{{ else }} class="filter-button" {{ end }}
+								onclick="filter(this)"
+							>
+								{{ $key | humanize }}
+							</button>
+					</li>
 					{{ end }}
 				</ul>
 	
 					{{- range .Data.Pages -}}
 					{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
 					{{- else -}}
-					<article class="post {{ range .Params.categories }} {{ . }}  {{ end }}">
+					<article class="post {{ range .Params.categories }} {{ . | urlize }}  {{ end }}">
 						<a href="{{ .RelPermalink }}">
 							<figure class="post__icon">
 								{{if isset .Params "icon" }}
@@ -53,7 +60,8 @@
 		
 
 	{{ partial "footer.html" . }}
-	{{ $filter := resources.Get "js/filter.js" | resources.Minify }}
+	{{ $opts := dict "noComments" true "minified" true}}
+	{{ $filter := resources.Get "js/filter.js" | babel $opts }}
 	<script src="{{  $filter.Permalink }}"></script>
 
 </body>
