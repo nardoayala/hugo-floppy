@@ -70,6 +70,19 @@ h5 {
     }
   }
 }
+.error-page {
+  flex-direction: row;
+  &__image {
+    flex: 50%;
+    max-width: 540px;
+    height: 350px;
+  }
+  &__details {
+    flex: 50%;
+    margin-top: 0;
+    margin-left: 50px;
+  }
+}
 .footer {
   &__container {
     flex-direction: row;

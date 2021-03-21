@@ -2,14 +2,22 @@
 <html>
 {{ partial "head.html" . }}
 <body>
-	<div class="container wrapper">
-		{{ partial "header.html" . }}
-		<div class="404-error">
-			<h2 class="page-title">HTTP-404 Error</h2>
-			<p>
-			There is not content here.
-			</p>
+	{{ partial "header.html" . }}
+	<main>
+		<div class="main__container">
+			<h1 class="error-page__title">Error 404</h1>
+			<div class="error-page">
+				<div class="error-page__image"></div>
+				<div class="error-page__details">
+					<h2>Malas noticias 😕</h2>
+					<p>La página que estás buscando fue eliminada o está temporalmente caída</p>
+					<a href="/">
+						<button type="button">Volver al home</button>
+					</a>
+				</div>
+			</div>
 		</div>
+	</main>
 	{{ partial "footer.html" . }}
 </body>
 </html>
