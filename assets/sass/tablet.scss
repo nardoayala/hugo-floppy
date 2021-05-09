@@ -54,7 +54,12 @@ h5 {
     }
   }
   &__filter-buttons {
-    justify-content: start;
+    li {
+      margin: 15px 0;
+    }
+    button {
+      padding: 8px;
+    }
   }
   .post {
     h3 {
