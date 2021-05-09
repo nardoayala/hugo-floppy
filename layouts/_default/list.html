@@ -17,13 +17,14 @@
 				{{ end }}
 
 				<ul class="posts__filter-buttons">
-					<li><button class="active filter-button" onclick="filter(this)">Todos</button></li>
+					<li><button class="active filter-button" onclick="filter(this)" name="all">Todos</button></li>
 					{{ $url := .RelPermalink }}
 					{{ range $key, $value := .Site.Taxonomies.categories }}
 					{{ $categoryUrl := print "/" ($key | urlize) "/" }}
 					<li><button
 								{{ if eq $categoryUrl $url }}class="active filter-button"
 								{{ else }} class="filter-button" {{ end }}
+								name="{{ $key }}"
 								onclick="filter(this)"
 							>
 								{{ $key | humanize }}
