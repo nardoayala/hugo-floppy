@@ -70,10 +70,17 @@ footer {
     @extend .container;
     flex-direction: column;
   }
-  &__copyright {
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 3;
+  &__social-links {
+    list-style: none;
+    display: flex;
+    font-size: 1.8rem;
+    li {
+      &:not(:last-child)::after {
+        content: "◦";
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
   }
   &__linking a {
     margin-right: 20px;
