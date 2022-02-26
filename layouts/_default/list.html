@@ -7,7 +7,6 @@
 	<main>
 		<div class="main__container">
 
-
 			<section class="posts">
 	
 				{{ if isset .Data "Term" }}
@@ -17,26 +16,35 @@
 				{{ end }}
 
 				<ul class="posts__filter-buttons">
-					<li><button class="active filter-button" onclick="filter(this)" name="all">Todos</button></li>
+  
+					<li>
+						<a href="/posts" class="active button filter-button">Todos</a>
+					</li>
+				
 					{{ $url := .RelPermalink }}
 					{{ range $key, $value := .Site.Taxonomies.categories }}
-					{{ $categoryUrl := print "/" ($key | urlize) "/" }}
-					<li><button
-								{{ if eq $categoryUrl $url }}class="active filter-button"
-								{{ else }} class="filter-button" {{ end }}
-								name="{{ $key }}"
-								onclick="filter(this)"
+						{{ $categoryUrl := print "/categories/" ($key | urlize) "/" }}
+						<li>
+							<a
+								href={{ $categoryUrl }}
+								{{ if eq $categoryUrl $url }}
+									class="active button filter-button"
+								{{ else }}
+									class="button filter-button"
+								{{ end }}
 							>
 								{{ $key | humanize }}
-							</button>
-					</li>
+							</a>
+						</li>
 					{{ end }}
+				
 				</ul>
-	
-					{{- range .Data.Pages -}}
-					{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
-					{{- else -}}
-					<article class="post {{ range .Params.categories }} {{ . | urlize }}  {{ end }}">
+
+				{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+				{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
+				{{ range $paginator.Pages }}
+
+					<article class="post">
 						<a href="{{ .RelPermalink }}">
 							<figure class="post__icon">
 								{{if isset .Params "icon" }}
@@ -53,17 +61,16 @@
 							</div>
 						</a>
 					</article>
-					{{- end -}}
-					{{- end -}}
+
+				{{- end -}}
+
 			</section>
+			{{ partial "paginator" . }}
 		</div>
 	</main>
 		
 
 	{{ partial "footer.html" . }}
-	{{ $opts := dict "noComments" true "minified" true}}
-	{{ $filter := resources.Get "js/filter.js" | babel $opts }}
-	<script src="{{  $filter.Permalink }}"></script>
 
 </body>
 

@@ -25,6 +25,7 @@ h5 {
     display: flex;
     gap: 15px;
   }
+  button,
   .button {
     min-width: 150px;
     margin-left: auto;
@@ -65,9 +66,11 @@ h5 {
   }
   &__filter-buttons {
     li {
-      margin: 15px 0;
+      margin-top: 15px;
+      margin-bottom: 15px;
     }
-    button {
+    button,
+    .button {
       padding: 8px;
     }
   }

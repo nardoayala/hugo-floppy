@@ -15,30 +15,64 @@
 				{{ else }}
 				<h2 class="section-title">{{ .Title }}</h2>
 				{{ end }}
-	
-					{{- range .Data.Pages -}}
-					{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
-					{{- else -}}
-					<article class="post {{ range .Params.categories }} {{ . }}  {{ end }}">
-						<a href="{{ .RelPermalink }}">
-							<figure class="post__icon">
-								{{if isset .Params "icon" }}
-									<img class="icon" src="{{ index .Params "icon" }}" width="30" height="30" alt="Post Icon">
-								{{ else }}
-									<img class="icon"  width="30" height="30" src="img/icons/defragment.png" alt="Post Icon">
-								{{ end }}
-							</figure>
-							<div class="post__info">
-								<h3>
-									{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}
-								</h3>
-								<span class="date">{{ dateFormat "Jan 2, 2006" .Date }}</span>
-							</div>
+
+				<ul class="posts__filter-buttons">
+					{{ $url := .RelPermalink }}
+  
+					<li>
+						<a
+							href="/posts"
+							{{ if eq $url "posts" }}
+							class="active button filter-button"
+							{{ else }}
+								class="button filter-button"
+							{{ end }}
+							class="active button filter-button">
+							Todos
 						</a>
-					</article>
-					{{- end -}}
+					</li>
+
+					{{ range $key, $value := .Site.Taxonomies.categories }}
+					{{ $categoryUrl := print "/categories/" ($key | urlize) "/" }}
+						<li>
+							<a
+								href={{ $categoryUrl }}
+								{{ if eq $categoryUrl $url }}
+									class="active button filter-button"
+								{{ else }}
+									class="button filter-button"
+								{{ end }}
+							>
+								{{ $key | humanize }}
+							</a>
+						</li>
+					{{ end }}
+				
+				</ul>
+
+					{{ range .Paginator.Pages }}
+
+						<article class="post">
+							<a href="{{ .RelPermalink }}">
+								<figure class="post__icon">
+									{{if isset .Params "icon" }}
+										<img class="icon" src="{{ index .Params "icon" }}" width="30" height="30" alt="Post Icon">
+									{{ else }}
+										<img class="icon"  width="30" height="30" src="img/icons/defragment.png" alt="Post Icon">
+									{{ end }}
+								</figure>
+								<div class="post__info">
+									<h3>
+										{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}
+									</h3>
+									<span class="date">{{ dateFormat "Jan 2, 2006" .Date }}</span>
+								</div>
+							</a>
+						</article>
+
 					{{- end -}}
 			</section>
+			{{ partial "paginator" . }}
 		</div>
 	</main>
 	
