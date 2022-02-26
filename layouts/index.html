@@ -17,7 +17,7 @@
 
 					{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 					{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
-					{{ range $paginator.Pages }}
+					{{ range $paginator.Pages | first .Site.Params.recentArticles }}
 
 					<article class="post">
 						<a href="{{ .RelPermalink }}">
@@ -36,9 +36,9 @@
 							</div>
 						</a>
 					</article>
+					
 					{{ end }}
 			</section>
-			{{ partial "paginator" . }}
 		</div>
 	</main>
 		
